@@ -1,0 +1,34 @@
+# Permalinks
+permalink:        pretty
+
+# Setup
+url:              http://ankitsultana.me
+
+# Set to '' in case of hosting on `http://<your-github-name>.github.io`
+baseurl:          /blog
+
+title:            My Blog
+
+# Markdown enabled, however don't use more than one paragraph (enforced by `>`)
+description:      >
+    Come on!
+
+# The tags listed as entries in the sidebar
+sidebar_tags:     [Deep Learning, Algorithms, Others]
+
+# Fallback image and color if not overwritten for tag or post
+image:            http://qwtel.com/hydejack/public/img/nap.jpg
+color:            '#A85641'
+
+author:
+  name:           'ZhangTianliang'
+  twitter:        xingkongliang
+  github:         xingkongliang
+  photo:          http://www.ucassdl.cn/image/people/zhangtianliang.jpg
+
+  # Markdown enabled, can use multiple paragraphs (enabled by `|`)
+  about:  
+    |
+      A UCAS student(master).
+
+      Email: zhangtianliang@mails.ucas.ac.cn

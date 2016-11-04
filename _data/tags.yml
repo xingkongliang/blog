@@ -1,0 +1,87 @@
+# Add an entry, where the key represents a slug.
+# Provide at least a `name` value and optionally `image`, `color` and `description`.
+# Markdown is enabled for `description`, however don't use more than one paragraph (enforced by `>`)
+#
+# Example:
+#
+# ~~~
+# mytag:
+#   name: My Tag
+#   description: >
+#     *My Tag* is an example of how to define a custom tag.
+# ~~~
+
+Deep Learning:
+    name: Deep Learning
+    image: #
+    color: '#949667'
+    description: >
+        Deep Learning
+Algorithms:
+    name: Algorithms
+    image: #
+    color: '#21252B'
+    description: >
+        algorithms
+Others:
+    name: Others
+    image: #
+    color: '#376D9C'
+    description: >
+        Others
+
+git:
+    name: git
+    image: #
+    color: '#949667'
+    description: >
+        git is awesome
+
+vim:
+    name: vim
+    image: https://ankitsultana.me/blog/public/img/vim-session-example.png
+    color: '#21252B'
+    description: >
+        vim is for winners
+
+algorithms:
+    name: algorithms
+    image: #
+    color: '#949667'
+    description: >
+        them so good
+
+python:
+    name: python
+    image: #
+    color: '#376D9C'
+    description: >
+        Not Monty's Python
+
+shell:
+    name: shell
+    image: #
+    color: '#303030'
+    description: >
+        For the badasses
+
+math:
+    name: math
+    image: #
+    color: '#F4B764'
+    description: >
+        Language of Science
+
+sport-programming:
+    name: Sport Programming
+    image: #
+    color: '#A43838'
+    description: >
+        For Fun
+
+miscellaneous:
+    name: miscellaneous
+    image: #
+    color: '#303030'
+    description: >
+        Random spitballing
