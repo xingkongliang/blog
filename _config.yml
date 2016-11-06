@@ -20,6 +20,14 @@ sidebar_tags:     [Deep Learning, Machine Learning, Algorithms, Life, Others]
 image:            http://qwtel.com/hydejack/public/img/nap.jpg
 color:            '#A85641'
 
+# 阅读处理
+safe:         false
+include:      []
+exclude:      ['README.md']
+keep_files:   [".git", ".svn"]
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
 author:
   name:           'ZhangTianliang'
   twitter:        xingkongliang
