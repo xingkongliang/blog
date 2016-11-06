@@ -13,8 +13,6 @@ title: About
   ![{{ site.author.name }}]({{ site.author.photo }}){:.me}
 {% endif %}
 
-Name: ZhangTianliang
-
 {{ site.author.about }}
 
 

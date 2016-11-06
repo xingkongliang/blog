@@ -7,7 +7,7 @@ url:
 # Set to '' in case of hosting on `http://<your-github-name>.github.io`
 baseurl:          
 
-title:            My Blog
+title:            xingkongliang
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:      >
@@ -37,6 +37,8 @@ author:
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:  
     |
-      A UCAS student(master).
+      Name: ZhangTianliang 
+
+      Introduction: A UCAS student(master).
 
       Email: zhangtianliang@mails.ucas.ac.cn
