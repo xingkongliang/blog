@@ -43,4 +43,6 @@ author:
 
       Email: zhangtianliang@mails.ucas.ac.cn
 
+comments_sys: duoshuo
+# comments_sys: disqus
 comments: true
