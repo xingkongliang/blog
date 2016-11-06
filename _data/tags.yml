@@ -14,15 +14,27 @@
 Deep Learning:
     name: Deep Learning
     image: #
-    color: '#949667'
+    color: '#000'
     description: >
         Deep Learning
+Machine Learning:
+    name: Machine Learning
+    image: #
+    color: '#f00'
+    description: >
+        Machine learning
 Algorithms:
     name: Algorithms
     image: #
     color: '#21252B'
     description: >
         algorithms
+Life:
+    name: Life
+    image: #
+    color: '#376D9C'
+    description: >
+        Life
 Others:
     name: Others
     image: #
@@ -43,13 +55,6 @@ vim:
     color: '#21252B'
     description: >
         vim is for winners
-
-algorithms:
-    name: algorithms
-    image: #
-    color: '#949667'
-    description: >
-        them so good
 
 python:
     name: python

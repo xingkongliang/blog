@@ -14,7 +14,7 @@ description:      >
     Come on!
 
 # The tags listed as entries in the sidebar
-sidebar_tags:     [Deep Learning, Algorithms, Others]
+sidebar_tags:     [Deep Learning, Machine Learning, Algorithms, Life, Others]
 
 # Fallback image and color if not overwritten for tag or post
 image:            http://qwtel.com/hydejack/public/img/nap.jpg

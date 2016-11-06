@@ -1,5 +1,5 @@
 ---
 layout: blog_by_tag
-tag: Deep_Learning
+tag: Deep Learning
 permalink: /tag/Deep Learning/
 ---
