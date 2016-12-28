@@ -2,7 +2,7 @@
 layout: post
 tags: [Deep Learning]
 ---
-#使用逻辑回归分类MNIST数字
+# 使用逻辑回归分类MNIST数字
 
 本文地址：http://blog.csdn.net/tianliangjay/article/details/53649251
 
