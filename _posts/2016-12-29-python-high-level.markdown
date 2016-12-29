@@ -46,6 +46,7 @@ filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15])
 
 ```
 把一个序列中的空字符串删掉，可以这么写
+
 ```python 
 def not_empty(s):
     return s and s.strip()
