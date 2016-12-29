@@ -41,3 +41,16 @@ def evaluate(x, y, expr, x_value, y_value):
 ```python
     return function([x, y], expr)(x_value, y_value)
 ```
+
+
+#### 3. Returns dz / dx + dz / dy
+
+```python
+return T.grad(z, x) + T.grad(z, y)
+```
+
+简化版：
+
+```python
+return sum(T.grad(z, [x, y]))
+```
