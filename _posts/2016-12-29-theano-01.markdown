@@ -1,7 +1,7 @@
 ---
 title: Theano exercise 笔记
 layout: post
-tags: [Others]
+tags: [Others, Theano]
 ---
 
 此笔记为[theano_exercises](https://github.com/goodfeli/theano_exercises)教程的记录。

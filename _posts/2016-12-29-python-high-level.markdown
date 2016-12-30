@@ -1,7 +1,7 @@
 ---
 title: Python 函数式编程
 layout: post
-tags: [Others]
+tags: [Others, python]
 ---
 
 以下代码摘自于[廖雪峰博客](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819866394c3f9efcd1a454b2a8c57933e976445c0000)

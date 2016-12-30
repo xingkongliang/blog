@@ -1,7 +1,7 @@
 ---
 title: Python 调试记录笔记
 layout: post
-tags: [Others]
+tags: [Others, python]
 ---
 
 
@@ -39,6 +39,57 @@ def main():
 
 
 ## pdb
+
+
+```python
+# err.py
+s = '0'
+n = int(s)
+print 10 / n
+```
+
+启动
+```
+$ python -m pdb err.py
+> /Users/michael/Github/sicp/err.py(2)<module>()
+-> s = '0'
+```
+
+以参数`-m pdb`启动后，pdb定位到下一步要执行的代码`-> s = '0'`。输入命令l来查看代码：
+```python
+(Pdb) l
+  1     # err.py
+  2  -> s = '0'
+  3     n = int(s)
+  4     print 10 / n
+[EOF]
+```
+输入命令`n`可以单步执行代码：
+```
+(Pdb) n
+> /Users/michael/Github/sicp/err.py(3)<module>()
+-> n = int(s)
+(Pdb) n
+> /Users/michael/Github/sicp/err.py(4)<module>()
+-> print 10 / n
+```
+任何时候都可以输入命令`p 变量名`来查看变量：
+```
+(Pdb) p s
+'0'
+(Pdb) p n
+0
+```
+
+输入命令`q`结束调试，退出程序
+```
+(Pdb) n
+ZeroDivisionError: 'integer division or modulo by zero'
+> /Users/michael/Github/sicp/err.py(4)<module>()
+-> print 10 / n
+(Pdb) q
+```
+
 
 ```python
 # err.py
