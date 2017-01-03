@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: [Deep Learning]
+tags: [Deep Learning, Theano]
 ---
 # 使用逻辑回归分类MNIST数字
 

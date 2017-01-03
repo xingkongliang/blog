@@ -1,0 +1,56 @@
+---
+title: Theano exercise 笔记
+layout: post
+tags: [Others, Theano]
+---
+
+此笔记为[theano_exercises](https://github.com/goodfeli/theano_exercises)教程的记录。
+
+该教程是大牛Ian Goodfellow写的练习题。
+
+
+
+#### 1. 创建一个dim维的张量，代码如下：
+
+``` python
+def make_tensor(dim):
+    """
+    Returns a new Theano tensor with no broadcastable dimensions.
+    dim: the total number of dimensions of the tensor.
+    """
+
+    return T.TensorType(broadcastable=tuple([False] * dim), dtype='float32')()
+```
+#### 2. 返回一个函数
+```python
+def evaluate(x, y, expr, x_value, y_value):
+    """
+    x: A theano variable
+    y: A theano variable
+    expr: A theano expression involving x and y
+    x_value: A numpy value
+    y_value: A numpy value
+
+    Returns the value of expr when x_value is substituted for x
+    and y_value is substituted for y
+    """
+    f = theano.function([x, y], expr)
+    return f(x_value, y_value)
+```
+简化版：
+```python
+    return function([x, y], expr)(x_value, y_value)
+```
+
+
+#### 3. Returns dz / dx + dz / dy
+
+```python
+return T.grad(z, x) + T.grad(z, y)
+```
+
+简化版：
+
+```python
+return sum(T.grad(z, [x, y]))
+```

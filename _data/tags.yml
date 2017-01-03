@@ -32,7 +32,7 @@ Algorithms:
 Life:
     name: Life
     image: #
-    color: '#376D9C'
+    color: '#376D12'
     description: >
         Life
 Others:
@@ -41,6 +41,12 @@ Others:
     color: '#376D9C'
     description: >
         Others
+Theano:
+    name: Theano
+    image: #
+    color: '#376D00'
+    description: >
+        Theano
 
 git:
     name: git
@@ -59,7 +65,7 @@ vim:
 python:
     name: python
     image: #
-    color: '#376D9C'
+    color: '#370000'
     description: >
         Not Monty's Python
 
