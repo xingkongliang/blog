@@ -154,4 +154,4 @@ Variance score: 0.47
 ```
 
 
-![01.Linear_regression](\images\post-covers\01.Linear_regression.png)
+![01.Linear_regression](\blog\images\post-covers\01.Linear_regression.png)
