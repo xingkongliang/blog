@@ -50,7 +50,7 @@ C.eval({A: np.zeros((3, 4), dtype=theano.config.floatX),
 ```
 Out：
 
-```
+```python
 ---------------------------------------------------------------------------
 ValueError                                Traceback (most recent call last)
 <ipython-input-14-75863a5c9f35> in <module>()
@@ -113,7 +113,7 @@ C = T.dot(A, B)
 ```
 Out:
 
-```
+```python
 
 ---------------------------------------------------------------------------
 ValueError                                Traceback (most recent call last)
@@ -256,7 +256,7 @@ print(divide(0, 0))
 ```
 Out；
 
-```
+```python
 
 ---------------------------------------------------------------------------
 AttributeError                            Traceback (most recent call last)
