@@ -138,6 +138,6 @@ Output:
 
 
 
-![02.MLP-1](\images\post-covers\02.MLP-1.png)
+![02.MLP-1](\blog\images\post-covers\02.MLP-1.png)
 
-![02.MLP-2](\images\post-covers\02.MLP-2.png)
+![02.MLP-2](\blog\images\post-covers\02.MLP-2.png)
