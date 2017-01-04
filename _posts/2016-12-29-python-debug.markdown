@@ -1,7 +1,7 @@
 ---
 title: Python 调试记录笔记
 layout: post
-tags: [Others, python]
+tags: [Others, Python]
 ---
 
 

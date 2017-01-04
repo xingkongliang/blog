@@ -1,7 +1,7 @@
 ---
 title: Keras教程
 layout: post
-tags: [Deep Learning, python]
+tags: [Deep Learning, Python]
 ---
 
 Github地址：[here](https://github.com/xingkongliang/Keras-Tutorials)

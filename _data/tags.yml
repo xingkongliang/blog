@@ -62,8 +62,8 @@ vim:
     description: >
         vim is for winners
 
-python:
-    name: python
+Python:
+    name: Python
     image: #
     color: '#370000'
     description: >
