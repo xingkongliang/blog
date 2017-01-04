@@ -1,0 +1,143 @@
+---
+title: 02.多层感知器 Theano实现
+layout: post
+tags: [Machine Learning, Theano]
+---
+
+# 多层感知器
+
+原作者代码地址：[here](https://github.com/craffel/theano-tutorial/blob/master/Theano%20Tutorial.ipynb)
+
+code：
+
+```python 
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+
+from __future__ import print_function
+
+import numpy as np
+import theano
+import theano.tensor as T
+import matplotlib.pyplot as plt
+import pdb
+
+class Layer(object):
+    def __init__(self, W_init, b_init, activation):
+        n_output, n_input = W_init.shape
+        assert b_init.shape == (n_output,)
+
+        self.W = theano.shared(value=W_init.astype(theano.config.floatX),
+                               name='W',
+                               borrow=True)
+        self.b = theano.shared(value=b_init.reshape(n_output, 1).astype(theano.config.floatX),
+                               name='b',
+                               borrow=True,
+                               broadcastable=(False, True))
+
+        self.activation = activation
+        self.params = [self.W, self.b]
+
+    def output(self, x):
+        lin_output = T.dot(self.W, x) + self.b
+
+        return (lin_output if self.activation is None else self.activation(lin_output))
+
+class MLP(object):
+    def __init__(self, W_init, b_init, activations):
+        assert len(W_init) == len(b_init) == len(activations)
+
+        self.layers = []
+        for W, b, activation in zip(W_init, b_init, activations):
+            self.layers.append(Layer(W, b, activation))
+
+        self.params = []
+        for layer in self.layers:
+            self.params += layer.params
+
+    def output(self, x):
+        for layer in self.layers:
+            x = layer.output(x)
+        return x
+
+    def squared_error(self, x, y):
+        return T.sum((self.output(x) - y)**2)
+
+
+def gradient_updates_momentum(cost, params, learning_rate, momentum):
+    assert momentum < 1 and momentum >= 0
+    updates = []
+    for param in params:
+        previous_step = theano.shared(param.get_value()*0, broadcastable=param.broadcastable)
+        step = momentum*previous_step - learning_rate*T.grad(cost, param)
+        updates.append((previous_step, step))
+        updates.append((param, param + step))
+    return updates
+
+if __name__ == '__main__':
+    np.random.seed(0)
+    N = 1000
+    y = np.random.random_integers(0, 1, N)
+    means = np.array([[-1, 1], [-1, 1]])
+    covariances = np.random.random_sample((2, 2)) + 1
+    X = np.vstack([np.random.randn(N)*covariances[0, y] + means[0, y],
+                   np.random.randn(N)*covariances[1, y] + means[1, y]]).astype(theano.config.floatX)
+
+    y = y.astype(theano.config.floatX) 
+    plt.figure(figsize=(8, 8))
+    plt.scatter(X[0, :], X[1, :], c=y, lw=.3, s=3, cmap=plt.cm.cool)
+    plt.axis([-6, 6, -6, 6])
+    plt.show()
+
+    layer_sizes = [X.shape[0], X.shape[0]*2, 1]
+    # Set initial parameter values
+    W_init = []
+    b_init = []
+    activations = []
+    for n_input, n_output in zip(layer_sizes[:-1], layer_sizes[1:]):
+        W_init.append(np.random.randn(n_output, n_input))
+        b_init.append(np.ones(n_output))
+        activations.append(T.nnet.sigmoid)
+    # Create an instance of the MLP class
+    mlp = MLP(W_init, b_init, activations)
+
+    # Create Theano variables for the MLP input
+    mlp_input = T.matrix('mlp_input')
+    # ... and the desired output
+    mlp_target = T.vector('mlp_target')
+    # Learning rate and momentum hyperparameter values
+    # Again, for non-toy problems these values can make a big difference
+    # as to whether the network (quickly) converges on a good local minimum.
+    learning_rate = 0.01
+    momentum = 0.9
+    # Create a function for computing the cost of the network given an input
+    cost = mlp.squared_error(mlp_input, mlp_target)
+    # Create a theano function for training the network
+    train = theano.function([mlp_input, mlp_target], cost,
+                        updates=gradient_updates_momentum(cost, mlp.params, learning_rate, momentum))
+    # Create a theano function for computing the MLP's output given some input
+    mlp_output = theano.function([mlp_input], mlp.output(mlp_input))
+
+    # Keep track of the number of training iterations performed
+    iteration = 0
+    max_iteration = 20
+    while iteration < max_iteration:
+        current_cost = train(X, y)
+        current_output = mlp_output(X)
+        accuracy = np.mean((current_output > .5) == y)
+        iteration += 1
+    plt.figure(figsize=(8, 8))
+    plt.scatter(X[0, :], X[1, :], c=current_output,
+                lw=.3, s=3, cmap=plt.cm.cool, vmin=0, vmax=1)
+    plt.axis([-6, 6, -6, 6])
+    plt.title('Cost: {:.3f}, Accuracy: {:.3f}'.format(float(current_cost), accuracy))
+    plt.show()
+```
+
+Output:
+
+
+
+![02.MLP-1](\images\post-covers\02.MLP-1.png)
+
+![02.MLP-2](\images\post-covers\02.MLP-2.png)
