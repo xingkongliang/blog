@@ -49,6 +49,7 @@ C.eval({A: np.zeros((3, 4), dtype=theano.config.floatX),
         B: np.zeros((5, 6), dtype=theano.config.floatX)})
 ```
 Out：
+
 ```
 ---------------------------------------------------------------------------
 ValueError                                Traceback (most recent call last)
