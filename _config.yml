@@ -2,10 +2,10 @@
 permalink:        pretty
 
 # Setup
-url:              
+url:              https://xingkongliang.github.io      
 
 # Set to '' in case of hosting on `http://<your-github-name>.github.io`
-baseurl:    https://xingkongliang.github.io/blog/      
+baseurl:          /blog      
 
 title:            xingkongliang
 
