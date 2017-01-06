@@ -14,7 +14,7 @@ description:      >
     Sort my thoughts!
 
 # The tags listed as entries in the sidebar
-sidebar_tags:     [Deep Learning, Machine Learning, Algorithms, Life, Others]
+sidebar_tags:     [Deep Learning, Machine Learning, Algorithms, Python, Life, Others]
 
 # Fallback image and color if not overwritten for tag or post
 image:            http://pic1.win4000.com/wallpaper/a/54584417cf961.jpg
@@ -28,11 +28,12 @@ keep_files:   [".git", ".svn"]
 encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
+
 author:
   name:           'ZhangTianliang'
-  twitter:        xingkongliang
+  twitter:        xingkong_liang
   github:         xingkongliang
-  photo:          http://www.ucassdl.cn/image/people/zhangtianliang.jpg
+  photo:          https://avatars1.githubusercontent.com/u/8827798?v=3&s=460 #http://www.ucassdl.cn/image/people/zhangtianliang.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:  

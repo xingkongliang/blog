@@ -67,7 +67,7 @@ Python:
     image: #
     color: '#370000'
     description: >
-        Not Monty's Python
+        Python
 
 shell:
     name: shell
