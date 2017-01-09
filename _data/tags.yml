@@ -20,7 +20,7 @@ Deep Learning:
 Machine Learning:
     name: Machine Learning
     image: #
-    color: '#f00'
+    color: '#F4B764'
     description: >
         Machine learning
 Algorithms:
