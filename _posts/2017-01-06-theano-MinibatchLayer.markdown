@@ -108,10 +108,13 @@ print(activation.eval({x:x_input}).shape)
 
 print((activation.dimshuffle(0,1,2,'x') - activation.dimshuffle('x',1,2,0)).eval({x:x_input}).shape)
 
-abs_dif = (T.sum(abs(activation.dimshuffle(0,1,2,'x') - activation.dimshuffle('x',1,2,0)),axis=2)
-                    + 1e6 * T.eye(input.shape[0]).dimshuffle(0,'x',1))
+abs_dif = (T.sum(abs(activation.dimshuffle(0,1,2,'x') - activation.dimshuffle('x',1,2,0)),axis=2) + 1e6 * T.eye(x.shape[0]).dimshuffle(0,'x',1))
 
 print(abs_dif.eval({x:x_input}).shape)
+
+f = T.sum(T.exp(-abs_dif),axis=2)
+
+print(f.eval({x:x_input}).shape)
 
 ```
 

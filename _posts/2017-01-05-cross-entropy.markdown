@@ -34,7 +34,7 @@ $$H(p,q)=\sum_{x_i}p(x_{i})\log {\frac{1}{q(x_{i})}}$$
 $$H(p,q)=-\sum_{x}p(x)\,\log q(x)$$
 
 
-![KL](https://imgsa.baidu.com/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=be90023ebb014a9095334eefc81e5277/562c11dfa9ec8a13c3a0ea6cf503918fa1ecc080.jpg)
+![KL](\blog\images\post-covers\2017-01-05-corss-entropy.jpg)
 
 # 2.二次代价函数
 
@@ -63,7 +63,7 @@ $$\frac{\partial C}{\partial b}=(a-y)\sigma'(z)$$
 
 $$C=-\frac{1}{n}\sum \limits_x [ylna+(1-y)ln(1-a)]$$
 
-其中，x表示样本，n表示样本的总数。那么，重新计算参数w的梯度：
+其中，x表示样本，n表示样本的总数，y为期望的输出，a为神经元实际输出[$$a=\sigma(z)$$是激活函数，$$z=wx+b$$]。那么，重新计算参数w的梯度：
 
 $$\frac{\partial C}{\partial w_j}=-\frac{1}{n}\sum \limits_x(\frac{y}{\sigma(z)}-\frac{(1-y)}{1-\sigma(z)})\frac{\partial \sigma}{\partial w_j}\\
 =-\frac{1}{n}\sum \limits_x(\frac{y}{\sigma(z)}-\frac{(1-y)}{1-\sigma(z)})\sigma'(z)x_j\\
