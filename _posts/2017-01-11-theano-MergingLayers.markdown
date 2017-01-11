@@ -4,7 +4,7 @@ layout: post
 tags: [Deep Learning, Theano]
 ---
 
-# ConcatLayer
+# 1. ConcatLayer
 
 l3 = ll.ConcatLayer([l1, l2], 1)
 
@@ -53,5 +53,57 @@ Output:
 ```python
 
 (2, 5, 10, 10)
+
+```
+
+# 2. ElemwiseSumLayer
+
+code：
+
+**main.py**
+
+```python
+import numpy as np
+from numpy import linalg as LA
+import theano 
+from theano import function
+import theano.tensor as T
+import lasagne.layers as ll
+import lasagne
+
+x1 = T.tensor4()
+x2 = T.tensor4()
+
+l1 = ll.InputLayer(shape=(None, 1, 10, 10), input_var=x1)
+l2 = ll.InputLayer(shape=(None, 1, 10, 10), input_var=x2)
+
+l3 = ll.ElemwiseSumLayer([l1, l2])
+
+
+x1_input = np.random.random((2, 1, 10, 10))
+x2_input = np.random.random((2, 1, 10, 10))
+
+x1_input = x1_input.astype(theano.config.floatX)
+x2_input = x2_input.astype(theano.config.floatX)
+
+out = ll.get_output(l3)
+f = theano.function(outputs=[out], inputs=[x1, x2])
+
+output = f(x1_input, x2_input)
+
+print(output[0].shape)
+
+np.allclose(output, x1_input+x2_input)
+
+
+```
+
+Output:
+
+
+```python
+
+(2, 1, 10, 10)
+
 
 ```
