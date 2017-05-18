@@ -40,6 +40,16 @@ caffe train -solver examples/finetuning_on_flickr_style/solver.prototxt -weights
 
 ## Use MatCaffe
 
+显示caffe版本
+设定运行模式GUP or CUP
+设置使用第几个gpu
+```
+disp(caffe.version)
+
+caffe.set_mode_gpu();
+caffe.set_device(5);
+```
+
 ### 创建网络并访问其图层和Blob
 创建一个网络：
 
