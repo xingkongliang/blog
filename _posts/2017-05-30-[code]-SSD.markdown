@@ -1,0 +1,47 @@
+---
+title: SSD Single Shot MultiBox Detector
+layout: post
+tags: [Deep Learning]
+---
+
+
+
+这篇论文下载请点击[这里](http://arxiv.org/abs/1512.02325) 或者 [slide](http://www.cs.unc.edu/~wliu/papers/ssd_eccv2016_slide.pdf)
+
+代码下载请点击[这里](https://github.com/weiliu89/caffe/tree/ssd)
+
+
+安装问题
+
+如出现
+```
+
+/usr/include/boost/property_tree/detail/json_parser_read.hpp:257:264: error: ‘type name’ declared as function returning an array
+                 escape
+                                                                                                                                                                                                                                                                        ^
+/usr/include/boost/property_tree/detail/json_parser_read.hpp:257:264: error: ‘type name’ declared as function returning an array
+make: *** [.build_release/cuda/src/caffe/layers/detection_output_layer.o] Error 1
+make: *** Waiting for unfinished jobs....
+
+```
+请更新升级gcc版本
+
+```
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test  
+sudo apt-get update  
+  
+#如果提示未安装，还需要先安装它的包：  
+sudo apt-get install software-properties-common  
+  
+sudo apt-get install gcc-5 g++-5  
+  
+cd /usr/bin  
+  
+sudo rm gcc  
+  
+sudo ln -s gcc-5 gcc  
+  
+sudo rm g++  
+  
+sudo ln -s g++-5 g++  
+```
