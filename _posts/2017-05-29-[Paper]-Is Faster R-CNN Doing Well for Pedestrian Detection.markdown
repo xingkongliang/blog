@@ -22,7 +22,7 @@ tags: [Deep Learning]
 
 我们采用了0.41（宽度与高度）的单一纵横比的锚点（anchors）（参考窗口）。这是在参考文献[2]中提及的行人平均纵横比。这与具有多个纵横比的锚点的原始RPN[1]不同。不适当的长宽比的锚点与很少的样本相关联，因此对于检测精度来说是噪声和有害的。此外我们使用了9个不同尺度的锚点，从40像素高度开始，缩放步长为1.3x。这涉及到比[1]更广泛的尺度。多尺度锚点的使用放弃了使用特征金字塔检测多尺度对象的要求。
 
-和[1]一样，我们采用了在ImageNet数据集上预训练的VGG-16网络作为我们的backbone网络。RPN建立在Conv5_3层智商，后边是中间3x3卷积层和两个同级1x1卷积层，用于分类和边界框回归。以这种方式，RPN会以16像素（Conv5_3）的步幅回归窗口。分类层为候选窗口提供置信度分数，这可以将其作为随后的Boosted Forest级联的初始分数。
+和[1]一样，我们采用了在ImageNet数据集上预训练的VGG-16网络作为我们的backbone网络。RPN建立在Conv5_3层之上，后边是中间3x3卷积层和两个同级1x1卷积层，用于分类和边界框回归。以这种方式，RPN会以16像素（Conv5_3）的步幅回归窗口。分类层为候选窗口提供置信度分数，这可以将其作为随后的Boosted Forest级联的初始分数。
 
 值得注意的是，尽管我们将下一节中使用“a trous”技巧来提高分辨率和减少步幅，但是我们继续使用向相同的RPN，步幅为16像素。特征提取时只能利用a trous技巧，而不是fine-tuning。
 
@@ -59,12 +59,25 @@ KITTI数据集由具有可用立体数据的图像组成。我们对左侧相机
 ![Figure 3](\blog\images\post-covers\2017-05-29-paper03.png)
 对Caltech集合的RPN和三个现有方法在目标候选区域质量（召回率和IoU）方面进行比较，评估了每个图像的平均1,4或者100个候选窗口。
 
+重点！RPN作为一个独立的行人检测器实现了14.9%的MR，如表1所示。在Fig4中只有两种state-of-art方法超过这个性能。
+
+**表1** 在Caltech数据集上对比不同的分类器和特征。所有的方法都基于VGG-16（包括R-CNN）。所有的条目都使用了相同的RPN候选区域。
+![Figure 6](\blog\images\post-covers\2017-05-29-paper06.png)
+
+![Figure 7](\blog\images\post-covers\2017-05-29-paper07.png)
+
 #### How Important is Feature Resolution？
-表2 我们RPN+BF方法在Caltech数据集上不同特征的比较。所有条目均基于VGG16和同一组RPN候选窗口。
+使用R-CNN（用VGG-16网络）方法实现了13.1的MR，略好于独立RPN检测器（14.9%的MR），它使用的窗口和上面提到的RPN是一样的。R-CNN从图像上剪切的目标候选区域，并且调整到224x224的尺度，因此它受小目标的影响比较小。这表明如果提取224x224精细的特征，下游的分类器可以提升精度。
+
+然而同样在RPN提取的候选窗口上训练一个Fast R-CNN分类器，性能掉到了20.2%。尽管R-CNN在这个任务上工作很好，但是Fast R-CNN却产生了更糟糕的结果。
+
+这个问题部分是因为低分辨率的特征。在Conv5上使用a trous trick，把stride从16减少到8个像素，这个问题得到了缓解，实现了16.2%的MR。这说明更高的分辨率是有帮助的。
+
+**表2** 我们RPN+BF方法在Caltech数据集上不同特征的比较。所有条目均基于VGG16和同一组RPN候选窗口。
 ![Figure 4](\blog\images\post-covers\2017-05-29-paper04.png)
 
 #### How Important Is Bootstrapping?
-表3 在Caltech数据集上进行有无bootstrapping的比较
+**表3** 在Caltech数据集上进行有无bootstrapping的比较
 ![Figure 5](\blog\images\post-covers\2017-05-29-paper05.png)
 
 # 参考文献
